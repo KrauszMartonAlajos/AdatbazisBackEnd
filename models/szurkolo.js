@@ -2,12 +2,12 @@ const { Model } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) =>
 {
-    class Tanuló extends Model {};
+    class Szurkoló extends Model {};
 
-    Tanuló.init
+    Szurkoló.init
     (
         {
-            azonosító:
+            szigSzám:
             {
                 type: DataTypes.INTEGER,
                 primaryKey: true,
@@ -20,9 +20,9 @@ module.exports = (sequelize, DataTypes) =>
                 type: DataTypes.STRING(30),
             },
 
-            átlag:
+            kor:
             {
-                type: DataTypes.FLOAT
+                type: DataTypes.INTEGER
             },
 
             születésiDátum:
@@ -30,29 +30,20 @@ module.exports = (sequelize, DataTypes) =>
                 type: DataTypes.DATE,
             },
 
-            születésiHely:
-            {
-                type: DataTypes.STRING(100),
-            },
-
             nem:
             {
                 type: DataTypes.ENUM("Férfi", "Nő")
             },
 
-            felvétel:
-            {
-                type: DataTypes.DATE,
-            }
         },
 
         {
             sequelize,
-            modelName: "Tanuló",
+            modelName: "Szurkoló",
             freezeTableName: true,
             timestamps: false,
         }
     )
 
-    return Tanuló;
+    return Szurkoló;
 }

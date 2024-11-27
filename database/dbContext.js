@@ -1,4 +1,5 @@
 const { Sequelize, DataTypes } = require("sequelize");
+const logo = require("../models/logo");
 
 const sequelize = new Sequelize
 (
@@ -19,15 +20,15 @@ db.Sequelize = Sequelize;
 
 db.sequelize = sequelize;
 
-const { Tanuló, Osztály, Iskola, Tanár } = require("../models")(sequelize, DataTypes);
+const { Játékos, Csapat, Logo, Szurkoló } = require("../models")(sequelize, DataTypes);
 
-db.tanulók = Tanuló;
+db.játékosok = Játékos;
 
-db.osztályok = Osztály;
+db.csapatok = Csapat;
 
-db.iskolák = Iskola;
+db.logók = Logo;
 
-db.tanárok = Tanár;
+db.szurkolók = Szurkoló;
 
 db.sequelize.sync({ force: true })
 
@@ -207,9 +208,9 @@ db.sequelize.sync({ force: true })
         await tanulóRepository.createTanuló(tanuló);
     }
 
-    kozgaz_tanulok = await tanulóRepository.getIskolaTanulók(1);
+    kozgaz_tanulok = await tanulóRepository.getIskolajátékosok(1);
 
-    bem_tanulok = await tanulóRepository.getIskolaTanulók(2);
+    bem_tanulok = await tanulóRepository.getIskolajátékosok(2);
 
     kozgaz.létszám = kozgaz_tanulok.length;
 

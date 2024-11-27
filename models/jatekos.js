@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) =>
                 primaryKey: true,
                 autoIncrement: true,
                 allowNull: false,
-            },
+            },            
 
             gólokSzáma:
             {

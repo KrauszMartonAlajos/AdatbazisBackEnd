@@ -2,38 +2,38 @@ const { Model } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) =>
 {
-    class Csapat extends Model {};
+    class Logó extends Model {};
 
-    Csapat.init
+    Logó.init
     (
         {
-            azonosító:
-            {
-                type: DataTypes.INTEGER,
-                primaryKey: true,
-                autoIncrement: true,
-                allowNull: false,
-            },
-
-            név:
+            figura:
             {
                 type: DataTypes.STRING(30),
-
+                primaryKey: true,
             },
-            klubtagokSzáma:
+            főSzín:
             {
-                type: DataTypes.INTEGER,
-
+                type: DataTypes.STRING(30),
+                primaryKey: true,
             },
+            készítőNeve:
+            {
+                type: DataTypes.STRING(30),
+            },
+            elkészülésDátum:
+            {
+                type: DataTypes.DATE
+            }
         },
 
         {
             sequelize,
-            modelName: "Csapat",
+            modelName: "Logó",
             freezeTableName: true,
             timestamps: false,
         }
     )
-    
-    return Csapat;
+
+    return Logó;
 }
